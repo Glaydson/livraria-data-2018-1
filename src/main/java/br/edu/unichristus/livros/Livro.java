@@ -42,6 +42,10 @@ public class Livro {
 		this.preco = preco;
 	}
 	
+	public Livro () {
+		
+	}
+	
 	
 
 	

@@ -2,6 +2,7 @@ package br.edu.unichristus;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -38,7 +39,17 @@ public class LivrariaApplication implements CommandLineRunner {
 		this.servicoEditoras.salvarEditora(editora);
 		this.servicoEditoras.salvarEditora(editora2);
 		
-	
+		// Buscar o livro com ID = 2
+		Livro livroid2 = this.servicoLivros.buscarPeloID(2L);
+		System.out.println(livroid2);
+		
+		// Buscar todos os livros
+		List<Livro> livros = this.servicoLivros.buscarTodos();
+		for (Livro l: livros) {
+			System.out.println(l);
+		}
+		
+		livros.forEach(l -> System.out.println(l));
 	
 
 	}
