@@ -29,11 +29,14 @@ public class LivrariaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... arg0) throws Exception {
+		
+		// Cria e salva 2 livros
 		Livro livro = new Livro("Java Como Programar", LocalDate.now(), 250, new BigDecimal("15.00"));
 		Livro livro2 = new Livro("PHP Básico", LocalDate.now(), 100, new BigDecimal("145.00"));
 		this.servicoLivros.salvarLivro(livro);
 		this.servicoLivros.salvarLivro(livro2);
 
+		// Cria e salva duas editoras
 		Editora editora = new Editora("Campus", "Rio de Janeiro");
 		Editora editora2 = new Editora("Elsevier", "São Paulo");
 		this.servicoEditoras.salvarEditora(editora);
@@ -49,6 +52,7 @@ public class LivrariaApplication implements CommandLineRunner {
 			System.out.println(l);
 		}
 		
+		// Buscar todos os livros - opção 2
 		livros.forEach(l -> System.out.println(l));
 	
 
