@@ -11,7 +11,7 @@ public class LivroService {
 	@Autowired
 	private LivroRepository repo;
 	
-	public void salvarLivro(Livro l) {
+	public void salvar(Livro l) {
 		System.out.println("GRAVANDO O LIVRO " + l.getTitulo());
 		repo.save(l);
 	}
@@ -22,6 +22,28 @@ public class LivroService {
 	
 	public List<Livro> buscarTodos() {
 		return repo.findAll();
+	}
+	
+	public void remover(Long id) {
+		System.out.println("REMOVENDO O LIVRO ID " + id);
+		repo.delete(id);
+	}
+	
+	public void remover(Livro l) {
+		System.out.println("REMOVENDO O LIVRO ID " + l.getLivroID());
+		repo.delete(l);
+	}
+	
+	public Livro buscarPeloTitulo(String titulo) {
+		return repo.findByTitulo(titulo);
+	}
+	
+	public List<Livro> buscarTituloContendoString(String string) {
+		return repo.findByTituloLike(string);
+	}
+	
+	public List<Livro> buscarLivrosComPaginasIntervalo(int de, int ate) {
+		return repo.findByNumeroPaginasBetween(de, ate);
 	}
 
 }

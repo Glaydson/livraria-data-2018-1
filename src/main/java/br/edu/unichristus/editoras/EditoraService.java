@@ -11,7 +11,7 @@ public class EditoraService {
 	@Autowired
 	private EditoraRepository repo;
 
-	public void salvarEditora(Editora e) {
+	public void salvar(Editora e) {
 		System.out.println("GRAVANDO EDITORA " + e.getNome());
 		this.repo.save(e);
 	}
