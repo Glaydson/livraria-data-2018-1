@@ -14,7 +14,7 @@ import br.edu.unichristus.editoras.EditoraService;
 import br.edu.unichristus.livros.Livro;
 import br.edu.unichristus.livros.LivroService;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class LivrariaApplication implements CommandLineRunner {
 
 	@Autowired

@@ -45,5 +45,7 @@ public class LivroService {
 	public List<Livro> buscarLivrosComPaginasIntervalo(int de, int ate) {
 		return repo.findByNumeroPaginasBetween(de, ate);
 	}
+	
+
 
 }
