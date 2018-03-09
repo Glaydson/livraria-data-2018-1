@@ -9,39 +9,33 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import br.edu.unichristus.autores.AutorService;
 import br.edu.unichristus.editoras.Editora;
 import br.edu.unichristus.editoras.EditoraService;
 import br.edu.unichristus.livros.Livro;
 import br.edu.unichristus.livros.LivroService;
 
-//@SpringBootApplication
-public class ConsultasComEditorasApplication implements CommandLineRunner {
+@SpringBootApplication
+public class ConsultasComMaisTabelasApplication implements CommandLineRunner {
 
 	@Autowired
 	private LivroService servicoLivros;
 
 	@Autowired
 	private EditoraService servicoEditoras;
+	
+	@Autowired
+	private AutorService servicoAutores;
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConsultasComEditorasApplication.class, args);
+		SpringApplication.run(ConsultasComMaisTabelasApplication.class, args);
 	}
 
 	@Override
 	public void run(String... arg0) throws Exception {
-
-		// 1 - Alterar a cidade da editora bookman para Porto Alegre
-		Editora bookman = servicoEditoras.buscarPeloNome("Bookman");
-		bookman.setCidade("Porto Alegre");
-		servicoEditoras.salvar(bookman);
-
-		// 2 - Remover a editora moderna
-		Editora moderna = servicoEditoras.buscarPeloNome("Moderna");
-		servicoEditoras.remover(moderna);
-
-		// 3- Buscar editoras com ano de fundação entre 1970 e 2010
-		List<Editora> editoras70a2010 = servicoEditoras.buscarPeloAnoFundacao(1970, 2010);
-		editoras70a2010.forEach(e -> System.out.println(e));
-
+		Editora ceara = new Editora("Ceará", "São Paulo", 1950);
+		this.servicoEditoras.salvar(ceara);
+		
+		
 	}
 }

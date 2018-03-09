@@ -37,8 +37,8 @@ public class LivrariaApplication implements CommandLineRunner {
 		this.servicoLivros.salvar(livro2);
 
 		// Cria e salva duas editoras
-		Editora editora = new Editora("Campus", "Rio de Janeiro");
-		Editora editora2 = new Editora("Elsevier", "São Paulo");
+		Editora editora = new Editora("Campus", "Rio de Janeiro", 2000);
+		Editora editora2 = new Editora("Elsevier", "São Paulo", 1950);
 		this.servicoEditoras.salvar(editora);
 		this.servicoEditoras.salvar(editora2);
 
