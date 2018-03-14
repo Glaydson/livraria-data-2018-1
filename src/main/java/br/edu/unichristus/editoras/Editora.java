@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -27,14 +28,14 @@ public class Editora {
 
 	@Column(length = 30, nullable = false, unique = true)
 	private String nome;
-	
+
 	@Column(length = 30, nullable = false)
 	private String cidade;
 
 	@Column(name = "ANO_FUNDACAO")
 	private int anoFundacao;
-	
-	@OneToMany(mappedBy = "editora")
+
+	@OneToMany(mappedBy = "editora", fetch = FetchType.EAGER)
 	private List<Livro> livros;
 
 	public Editora(String nome, String cidade, int anoFundacao) {

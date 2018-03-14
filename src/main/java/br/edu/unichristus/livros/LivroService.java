@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.unichristus.editoras.Editora;
+
 @Service
 public class LivroService {
 	
@@ -44,6 +46,10 @@ public class LivroService {
 	
 	public List<Livro> buscarLivrosComPaginasIntervalo(int de, int ate) {
 		return repo.findByNumeroPaginasBetween(de, ate);
+	}
+	
+	public List<Livro> buscarLivrosEditora(Editora e) {
+		return repo.findByEditora(e);
 	}
 	
 

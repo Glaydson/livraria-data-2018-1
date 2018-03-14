@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,9 +32,25 @@ public class Autor {
 	private String pais;
 
 	// Autor é o proprietário da relação many to many
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "TB_AUTORES_LIVROS")
 	private List<Livro> livros;
 
+	public Autor(String nome, String pais) {
+		super();
+		this.nome = nome;
+		this.pais = pais;
+	}
+
+	public Autor() {
+
+	}
+
+	@Override
+	public String toString() {
+		return "Autor [autorID=" + autorID + ", nome=" + nome + ", pais=" + pais + ", livros=" + livros + "]";
+	}
+
 	// GETS E SETS, CONSTRUTOR, MÉTODO toString
+
 }

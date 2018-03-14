@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,7 +40,7 @@ public class Livro {
 	@Column(name = "PRECO")
 	private BigDecimal preco;
 
-	@ManyToMany(mappedBy = "livros")
+	@ManyToMany(mappedBy = "livros", fetch = FetchType.EAGER)
 	private List<Autor> autores;
 
 	@ManyToOne
@@ -57,5 +58,14 @@ public class Livro {
 	public Livro() {
 
 	}
+
+	@Override
+	public String toString() {
+		return "Livro [livroID=" + livroID + ", titulo=" + titulo + ", dataPublicacao=" + dataPublicacao
+				+ ", numeroPaginas=" + numeroPaginas + ", preco=" + preco + ", autores=" + autores + ", editora="
+				+ editora + "]";
+	}
+	
+	
 
 }

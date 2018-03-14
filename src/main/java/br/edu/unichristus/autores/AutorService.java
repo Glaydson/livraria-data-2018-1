@@ -42,5 +42,9 @@ public class AutorService {
 		this.repo.delete(autor);
 		System.out.println("REMOVIDO O AUTOR COM ID = " + autor.getAutorID());
 	}
+	
+	public Autor buscarPeloNome(String nome) {
+		return repo.findByNomeContains(nome);
+	}
 
 }

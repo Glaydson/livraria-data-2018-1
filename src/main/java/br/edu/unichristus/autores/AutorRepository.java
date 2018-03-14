@@ -10,5 +10,6 @@ import br.edu.unichristus.livros.Livro;
 @Repository
 public interface AutorRepository extends JpaRepository<Autor, Long> {
 	
+	public Autor findByNomeContains(String nome);
 
 }
