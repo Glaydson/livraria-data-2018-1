@@ -48,7 +48,15 @@ public class Autor {
 
 	@Override
 	public String toString() {
-		return "Autor [autorID=" + autorID + ", nome=" + nome + ", pais=" + pais + ", livros=" + livros + "]";
+		return "Autor [autorID=" + autorID + ", nome=" + nome + ", pais=" + pais + ", livros=" + listarLivros() + "]";
+	}
+
+	private String listarLivros() {
+		String titulosLivros = "";
+		for (Livro l: livros) {
+			titulosLivros = titulosLivros + " " + l.getTitulo() + " ";
+		}
+		return titulosLivros;
 	}
 
 	// GETS E SETS, CONSTRUTOR, MÉTODO toString

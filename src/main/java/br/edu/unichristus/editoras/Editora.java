@@ -49,4 +49,21 @@ public class Editora {
 
 	}
 
+	@Override
+	public String toString() {
+		return "Editora [editoraID=" + editoraID + ", nome=" + nome + ", cidade=" + cidade + ", anoFundacao="
+				+ anoFundacao + ", livros=" + listarLivros() + "]";
+	}
+
+	
+	private String listarLivros() {
+		String titulosLivros = "";
+		for (Livro l: livros) {
+			titulosLivros = titulosLivros + " " + l.getTitulo() + " ";
+		}
+		return titulosLivros;
+	}
+	
+	
+
 }

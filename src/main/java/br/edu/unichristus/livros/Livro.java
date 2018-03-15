@@ -62,8 +62,16 @@ public class Livro {
 	@Override
 	public String toString() {
 		return "Livro [livroID=" + livroID + ", titulo=" + titulo + ", dataPublicacao=" + dataPublicacao
-				+ ", numeroPaginas=" + numeroPaginas + ", preco=" + preco + ", autores=" + autores + ", editora="
+				+ ", numeroPaginas=" + numeroPaginas + ", preco=" + preco + ", autores=" + listaAutores() + ", editora="
 				+ editora + "]";
+	}
+
+	private String listaAutores() {
+		String nomesAutores = "";
+		for (Autor a: autores) {
+			nomesAutores = nomesAutores + " " + a.getNome() + " ";
+		}
+		return nomesAutores;
 	}
 	
 	

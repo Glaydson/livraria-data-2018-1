@@ -76,12 +76,34 @@ public class ConsultasComMaisTabelasApplication implements CommandLineRunner {
 		this.servicoLivros.salvar(livro2);
 		this.servicoAutores.salvar(antonio);
 
-		// Todos os livros de uma editora
+		// Todos os livros de uma editora - versão 1
 		// Editora campus = servicoEditoras.buscarPeloNome("Campus");
 		// campus.getLivros().forEach(livro -> System.out.println(livro));
 
+		// Todos os livros de uma editora - versão 2
+		System.out.println("LIVROS DA EDITORA CAMPUS");
 		List<Livro> livrosCampus = servicoLivros.buscarLivrosEditora(servicoEditoras.buscarPeloNome("Campus"));
-		livrosCampus.forEach(livro -> System.out.println(livro.getTitulo()));
+		livrosCampus.forEach(livro -> System.out.println(livro));
+
+		// Todos os livros de um autor
+		System.out.println("LIVROS DO AUTOR ANTONIO JOSÉ");
+		List<Livro> livrosAntonio = servicoLivros.buscarLivrosAutor("Antonio José");
+		livrosAntonio.forEach(livro -> System.out.println(livro));
+
+		// Todos os livros de Antonio José na Editora Érica
+		System.out.println("LIVROS DO AUTOR ANTONIO JOSÉ NA EDITORA ÉRICA");
+		List<Livro> livrosAntonioErica = servicoLivros.buscarLivrosAutorEditora("Antonio José", "Érica");
+		livrosAntonioErica.forEach(livro -> System.out.println(livro));
+
+		// Todos os autores de um determinado livro
+		System.out.println("AUTORES DO LIVRO JAVA COMO PROGRAMAR");
+		List<Autor> autoresJavaProgramar = servicoAutores.buscarAutoresLivro("Java Como Programar");
+		autoresJavaProgramar.forEach(autor -> System.out.println(autor));
+
+		// Todos os livros cujos autores sejam de um determinado país
+		System.out.println("LIVROS CUJOS AUTORES SEJAM DA INGLATERRA");
+		List<Livro> livrosAutorInglaterra = servicoLivros.buscarLivrosAutorPais("Inglaterra");
+		livrosAutorInglaterra.forEach(livro -> System.out.println(livro));
 
 	}
 }

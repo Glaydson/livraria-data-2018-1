@@ -21,10 +21,16 @@ public interface LivroRepository extends JpaRepository<Livro, Long> {
 	// Buscar os livros dentro de uma faixa de páginas
 	public List<Livro> findByNumeroPaginasBetween(int de, int ate);
 
+	// Buscar os livros de um autor
 	public List<Livro> findByAutoresNome(String nome);
 
+	// Buscar os livros cujos autores sejam de um determinado país
 	public List<Livro> findByAutoresPais(String pais);
 	
+	// Buscar os livros de uma editora
 	public List<Livro> findByEditora(Editora e);
+	
+	// Buscar os livros de um autor e editora
+	public List<Livro> findByAutoresNomeAndEditoraNome(String nomeAutor, String nomeEditora);
 
 }
